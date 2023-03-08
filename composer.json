@@ -1,0 +1,46 @@
+{
+    "name": "farmerstevieb/tina4php-ecomm",
+    "description": "Tina4 ecomm Module",
+    "license": "MIT",
+    "classmap": [
+      "src/*"
+    ],
+    "autoload": {
+        "files": [
+          "loadModule.php"
+        ],
+        "psr-4": {
+            "": [
+              "src/",
+              "src/app/",
+              "src/orm/",
+              "src/routes/"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "tina4stack/tina4php": "^2.0",
+        "tina4stack/tina4cms": "*"
+    },
+    "scripts": {
+        "tina4": "tina4",
+        "phplint": "vendor/bin/phplint",
+        "tina4service": "tina4service",
+        "test": "@tina4 tests:run",
+        "initialize": "@tina4 initialize:run",
+        "start": "@tina4 webservice:run",
+        "start-service": "@tina4service",
+        "lint": "@phplint --exclude=vendor"
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "require-dev": {
+        "phpmailer/phpmailer": "^6.5",
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9",
+        "overtrue/phplint": "^2.0"
+    }
+}
