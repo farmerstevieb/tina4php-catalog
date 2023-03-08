@@ -1,6 +1,6 @@
 {
-    "name": "farmerstevieb/tina4php-ecomm",
-    "description": "Tina4 ecomm Module",
+    "name": "farmerstevieb/tina4php-catalog",
+    "description": "Tina4 catalog Module",
     "license": "MIT",
     "classmap": [
       "src/*"
