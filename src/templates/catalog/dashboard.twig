@@ -225,20 +225,20 @@
                 {%endif%}
                 {% if (not userRoles.Content.Pages or userRoles.Content.Pages.visible) %}
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" role="tab" href="#"
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#"
                            onclick="loadPage('/catalog/products', 'sub-content')">Products</a>
                     </li>
                 {%endif%}
                 {% if (not userRoles.Content.Pages or userRoles.Content.Pages.visible) %}
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" role="tab" href="#"
-                           onclick="loadPage('/catalog/productsAttributesTypes', 'sub-content')">Product Attribute Types</a>
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#"
+                           onclick="loadPage('/catalog/product-attribute-type', 'sub-content')">Product Attribute Types</a>
                     </li>
                 {%endif%}
                 {% if (not userRoles.Content.Pages or userRoles.Content.Pages.visible) %}
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" role="tab" href="#"
-                           onclick="loadPage('/catalog/productsAttributesValues', 'sub-content')">Product Attributes Values</a>
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#"
+                           onclick="loadPage('/catalog/product-attribute-value', 'sub-content')">Product Attributes Values</a>
                     </li>
                 {%endif%}
             </ul>
