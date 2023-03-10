@@ -6,28 +6,28 @@
 });
         
 /**
- * CRUD Prototype Product Modify as needed
+ * CRUD Prototype ProductAttributeValue Modify as needed
  * Creates  GET @ /path, /path/{id}, - fetch,form for whole or for single
             POST @ /path, /path/{id} - create & update
             DELETE @ /path/{id} - delete for single
  */
-\Tina4\Crud::route ("/catalog/product-attribute-value", new Product(), function ($action, Product $product, $filter, \Tina4\Request $request) {
+\Tina4\Crud::route ("/catalog/product-attribute-value", new ProductAttributeValue(), function ($action, ProductAttributeValue $productAttributeValue, $filter, \Tina4\Request $request) {
     switch ($action) {
        case "form":
        case "fetch":
             //Return back a form to be submitted to the create
              
             if ($action == "form") {
-                $title = "Add Product";
+                $title = "Add ProductAttributeValue";
                 $savePath =  TINA4_SUB_FOLDER . "/catalog/product-attribute-value";
                 $content = \Tina4\renderTemplate("/catalog/product-attribute-value/form.twig", []);
             } else {
-                $title = "Edit Product";
-                $savePath =  TINA4_SUB_FOLDER . "/catalog/product-attribute-value/".$product->id;
-                $content = \Tina4\renderTemplate("/catalog/product-attribute-value/form.twig", ["data" => $product]);
+                $title = "Edit ProductAttributeValue";
+                $savePath =  TINA4_SUB_FOLDER . "/catalog/product-attribute-value/".$productAttributeValue->id;
+                $content = \Tina4\renderTemplate("/catalog/product-attribute-value/form.twig", ["data" => $productAttributeValue]);
             }
 
-            return \Tina4\renderTemplate("components/modalForm.twig", ["title" => $title, "onclick" => "if ( $('#productForm').valid() ) { saveForm('productForm', '" .$savePath."', 'message'); $('#formModal').modal('hide');}", "content" => $content]);
+            return \Tina4\renderTemplate("components/modalForm.twig", ["title" => $title, "onclick" => "if ( $('#productAttributeValueForm').valid() ) { saveForm('productAttributeValueForm', '" .$savePath."', 'message'); $('#formModal').modal('hide');}", "content" => $content]);
        break;
        case "read":
             //Return a dataset to be consumed by the grid with a filter
@@ -36,7 +36,7 @@
                 $where = "{$filter["where"]}";
             }
         
-            return   $product->select ("*", $filter["length"], $filter["start"])
+            return   $productAttributeValue->select ("*", $filter["length"], $filter["start"])
                 ->where("{$where}")
                 ->orderBy($filter["orderBy"])
                 ->asResult();
@@ -46,21 +46,21 @@
         break;
         case "afterCreate":
            //return needed 
-           return (object)["httpCode" => 200, "message" => "<script>productGrid.ajax.reload(null, false); showMessage ('Product Created');</script>"];
+           return (object)["httpCode" => 200, "message" => "<script>productAttributeValueGrid.ajax.reload(null, false); showMessage ('ProductAttributeValue Created');</script>"];
         break;
         case "update":
             //Manipulate the $object here
         break;    
         case "afterUpdate":
            //return needed 
-           return (object)["httpCode" => 200, "message" => "<script>productGrid.ajax.reload(null, false); showMessage ('Product Updated');</script>"];
+           return (object)["httpCode" => 200, "message" => "<script>productAttributeValueGrid.ajax.reload(null, false); showMessage ('ProductAttributeValue Updated');</script>"];
         break;   
         case "delete":
             //Manipulate the $object here
         break;
         case "afterDelete":
             //return needed 
-            return (object)["httpCode" => 200, "message" => "<script>productGrid.ajax.reload(null, false); showMessage ('Product Deleted');</script>"];
+            return (object)["httpCode" => 200, "message" => "<script>productAttributeValueGrid.ajax.reload(null, false); showMessage ('ProductAttributeValue Deleted');</script>"];
         break;
     }
 });
