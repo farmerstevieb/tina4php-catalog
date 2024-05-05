@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Tina4php-Catalog - Catalog Module
+ * Author Stevie B steve@farmit.cymru
+ */
 use Tina4\Config;
 use Tina4\Module;
 

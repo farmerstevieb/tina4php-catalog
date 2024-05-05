@@ -25,49 +25,45 @@
             integrity="sha256-NdDw7k+fJewgwI1XmH9NMR6OILvTX+3arqb/OgFicoM=" crossorigin="anonymous"></script>
     <script src="/js/tina4helper.js"></script>
     <link rel="stylesheet" href="/css/default.css">
-    <title>Products</title>
+    <title>ProductAttributes</title>
 </head>
 
 <body>
-    <h3>Products</h3>
-    <table id="productsGrid" class="table table-striped table-bordered table-condensed" style="width:100%">
+    <h3>ProductAttributes</h3>
+    <table id="productAttributesGrid" class="table table-striped table-bordered table-condensed" style="width:100%">
         <thead>
         <tr>
-{#                            <th>Id</th>#}
-                            <th>Product Name nn</th>
-                            <th>Product Description</th>
-                            <th>Product Image</th>
-                            <th>Price</th>
-                            <th>In Stock</th>
+                            <th>Id</th>
+                            <th>Product Id</th>
+                            <th>Attribute Name</th>
+                            <th>Attribute Order</th>
                         <th>Options</th>
         </tr>
         </thead>
     </table>
     <script>
-        var productsGrid = null;
+        var productAttributesGrid = null;
         $(document).ready(function () {
-            productsGrid = $('#productsGrid').DataTable({
+            productAttributesGrid = $('#productAttributesGrid').DataTable({
                 dom: '<"row"<"col-md-6"B><"col-md-4"f><"col-md-2"l>><rtip>',
                 ajax: {
-                        url: '/catalog/products',
+                        url: '/catalog/product-attributes',
                         data: function (d) {
                             d.formToken = formToken;
                         }
                 },
                 columns: [
-                                        // {"data": "id"},
-                                        {"data": "productName"},
-                                        {"data": "productDescription"},
-                                        {"data": "productImage"},
-                                        {"data": "price"},
-                                        {"data": "inStock"},
+                                        {"data": "id"},
+                                        {"data": "productId"},
+                                        {"data": "attributeName"},
+                                        {"data": "attributeOrder"},
                                         {
                         "data": null,
                         "mRender": function (data, type, row) {
                             let html = '';
                             //loadForm parameters: api to retrieve modal form, target div id to load form to, row data, title of
-                            html += '<button class="btn btn-primary small-button" onclick="showForm(\'edit\',\'/catalog/products/' + row.id + '?formToken={{ formToken ("/catalog/products") }}\')">Edit</button>';
-                            html += ' <button class="btn btn-danger small-button" onclick="if (confirm(\'Delete  record ?\')) { showForm(\'delete\',\'/catalog/products/' + row.id + '?formToken={{ formToken ("/catalog/products") }}\');}">Del</button>';
+                            html += '<button class="btn btn-primary small-button" onclick="showForm(\'edit\',\'/catalog/product-attributes/' + row.id + '?formToken={{ formToken ("/catalog/product-attributes") }}\')">Edit</button>';
+                            html += ' <button class="btn btn-danger small-button" onclick="if (confirm(\'Delete  record ?\')) { showForm(\'delete\',\'/catalog/product-attributes/' + row.id + '?formToken={{ formToken ("/catalog/product-attributes") }}\');}">Del</button>';
                             return html;
 
                         },
@@ -84,7 +80,7 @@
                         text: 'Create',
                         action: function (e, dt, node, config) {
                             let data = {};
-                            showForm('create', '/catalog/products/form?formToken={{ formToken ("/catalog/products") }}');
+                            showForm('create', '/catalog/product-attributes/form?formToken={{ formToken ("/catalog/product-attributes") }}');
                         }
                     },
                     'copy', 'excel', 'pdf', 'print'

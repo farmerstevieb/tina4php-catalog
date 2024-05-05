@@ -1,0 +1,29 @@
+<form id="productAttributesForm" enctype="multipart/form-data" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+                    <div class="form-group col-md-6">
+                <label for="id">Id</label>
+                <input class="form-control" type="text" id="id"
+                       name="id" placeholder="Id"
+                       value="{{ data.id }}">
+            </div>
+                    <div class="form-group col-md-6">
+                <label for="productId">Product Id</label>
+                <input class="form-control" type="text" id="productId"
+                       name="productId" placeholder="Product Id"
+                       value="{{ data.productId }}">
+            </div>
+                    <div class="form-group col-md-6">
+                <label for="attributeName">Attribute Name</label>
+                <input class="form-control" type="text" id="attributeName"
+                       name="attributeName" placeholder="Attribute Name"
+                       value="{{ data.attributeName }}">
+            </div>
+                    <div class="form-group col-md-6">
+                <label for="attributeOrder">Attribute Order</label>
+                <input class="form-control" type="text" id="attributeOrder"
+                       name="attributeOrder" placeholder="Attribute Order"
+                       value="{{ data.attributeOrder }}">
+            </div>
+            </div>
+    {{"productAttributesForm" | formToken | raw }}
+</form>

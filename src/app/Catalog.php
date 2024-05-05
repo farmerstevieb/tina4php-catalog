@@ -1,14 +1,13 @@
 <?php
 
 /**
- * Tina4php-ecomm - ecomm Module
- * Copy-right 2007 - current Tina4
- * License: MIT https://opensource.org/licenses/MIT
+ * Tina4php-Catalog - Catalog Module
+ * Author Stevie B steve@farmit.cymru
  */
 
 class Catalog extends Content
 {
-    private string $twigNamespace = "@tina4ecomm";
+    private string $twigNamespace = "@tina4catalog";
 
     /**
      * Get a different twig name space for changing dashboard and other screens
